@@ -123,4 +123,9 @@
     <style name="Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@android:color/transparent</item>
     </style>
+
+    <style name="avatar_rounder">
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>
