@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">56sp</item>
+        <item name="lineHeight">64dp</item>
+    </style>
+
+    <style name="headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">48sp</item>
+        <item name="lineHeight">56dp</item>
+    </style>
+
+    <style name="headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">40sp</item>
+        <item name="lineHeight">44dp</item>
+    </style>
+
+    <style name="headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">32sp</item>
+        <item name="lineHeight">40dp</item>
+    </style>
+
+    <style name="headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">32dp</item>
+    </style>
+
+    <style name="headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="headline6_medium" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="subtitle_1_bold" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="subtitle_1_medium" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="subtitle_2_bold" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="subtitle_2_medium" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="button_large" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/work_sans_bold</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="button_medium" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="body_medium" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="body_regular" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+
+    <style name="small_text_regular" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+
+    <style name="Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+</resources>

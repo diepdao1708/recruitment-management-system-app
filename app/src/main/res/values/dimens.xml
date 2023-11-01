@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="xxx_large">64dp</dimen>
+    <dimen name="xx_large">48dp</dimen>
+    <dimen name="x_large">32dp</dimen>
+    <dimen name="large">24dp</dimen>
+    <dimen name="x_medium">16dp</dimen>
+    <dimen name="medium">12dp</dimen>
+    <dimen name="x_small">8dp</dimen>
+    <dimen name="small">4dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+</resources>
