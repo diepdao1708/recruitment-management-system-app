@@ -1,13 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="@dimen/x_medium"
+    android:background="@color/white"
     tools:context=".features.account.AccountFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_account"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Account" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large"
+        android:background="@drawable/bg_white_12"
+        android:padding="@dimen/x_medium"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/avatar_rounder" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/subtitle_1_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:text="Dao Bich Diep"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_avatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_titleExperience"
+        style="@style/subtitle_1_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large"
+        android:text="Kinh nghiem lam viec"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_account" />
+
+    <TextView
+        android:id="@+id/tv_editExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_white"
+        android:padding="@dimen/x_small"
+        android:text="Sua"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="@id/tv_titleExperience"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_titleExperience" />
+
+    <TextView
+        android:id="@+id/tv_experience"
+        style="@style/body_medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small"
+        android:background="@drawable/bg_background_12"
+        android:padding="@dimen/x_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_titleExperience"
+        tools:text="1 nam" />
+
+    <TextView
+        android:id="@+id/tv_titleExpect"
+        style="@style/subtitle_1_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x_medium"
+        android:text="Cong viec mong muon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_experience" />
+
+    <TextView
+        android:id="@+id/tv_editExpect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_white"
+        android:padding="@dimen/x_small"
+        android:text="Sua"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="@id/tv_titleExpect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_titleExpect" />
+
+    <TextView
+        android:id="@+id/tv_expect"
+        style="@style/body_medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small"
+        android:background="@drawable/bg_background_12"
+        android:padding="@dimen/x_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_titleExpect"
+        tools:text="android kotlin" />
+
+    <TextView
+        android:id="@+id/tv_titleManagement"
+        style="@style/subtitle_1_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x_medium"
+        android:text="Quan ly tim viec"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_expect" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x_small"
+        android:background="@drawable/bg_background_12"
+        android:padding="@dimen/medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_titleManagement">
+
+        <ImageView
+            android:id="@+id/img_work"
+            android:layout_width="@dimen/icon_size_large"
+            android:layout_height="@dimen/icon_size_large"
+            android:src="@drawable/ic_work"
+            app:layout_constraintBottom_toBottomOf="@id/tv_numberJob"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv"
+            app:tint="@color/primary"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv"
+            style="@style/body_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:text="Viec da ung tuyen"
+            app:layout_constraintStart_toEndOf="@id/img_work"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_numberJob"
+            style="@style/subtitle_1_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            app:layout_constraintStart_toEndOf="@id/img_work"
+            app:layout_constraintTop_toBottomOf="@id/tv"
+            tools:text="4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

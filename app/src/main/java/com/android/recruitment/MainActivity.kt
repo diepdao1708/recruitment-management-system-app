@@ -1,6 +1,7 @@
 package com.android.recruitment
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -35,5 +36,22 @@ class MainActivity : AppCompatActivity() {
                 binding.bnvMain.isVisible = !visibility
             }
         }
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.homeFragment, R.id.resumeFragment, R.id.accountFragment -> showBottomNavigation()
+                else -> hideBottomNavigation()
+            }
+        }
+    }
+
+    private fun hideBottomNavigation() {
+        binding.bnvMain.visibility = View.GONE
+
+    }
+
+    private fun showBottomNavigation() {
+        binding.bnvMain.visibility = View.VISIBLE
+
     }
 }

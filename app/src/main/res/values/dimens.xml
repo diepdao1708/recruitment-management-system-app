@@ -8,5 +8,9 @@
     <dimen name="medium">12dp</dimen>
     <dimen name="x_small">8dp</dimen>
     <dimen name="small">4dp</dimen>
-    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_height">60dp</dimen>
+
+    <dimen name="icon_size_small">24dp</dimen>
+    <dimen name="icon_size_large">36dp</dimen>
+    <dimen name="avatar_size">56dp</dimen>
 </resources>

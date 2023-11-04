@@ -9,7 +9,17 @@
         android:id="@+id/homeFragment"
         android:name="com.android.recruitment.features.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_recommendFragment"
+            app:destination="@id/recommendFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_jobDetailFragment"
+            app:destination="@id/jobDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resumeFragment"
         android:name="com.android.recruitment.features.resume.ResumeFragment"
@@ -20,4 +30,58 @@
         android:name="com.android.recruitment.features.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/recommendFragment"
+        android:name="com.android.recruitment.features.recommend.RecommendFragment"
+        android:label="fragment_recommend"
+        tools:layout="@layout/fragment_recommend">
+        <action
+            android:id="@+id/action_recommendFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_recommendFragment_to_jobDetailFragment"
+            app:destination="@id/jobDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.android.recruitment.features.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_searchFragment_to_jobDetailFragment"
+            app:destination="@id/jobDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobDetailFragment"
+        android:name="com.android.recruitment.features.job_detail.JobDetailFragment"
+        android:label="JobDetailFragment"
+        tools:layout="@layout/fragment_job_detail">
+        <action
+            android:id="@+id/action_jobDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_jobDetailFragment_to_recommendFragment"
+            app:destination="@id/recommendFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/recommendFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_jobDetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -33,17 +33,23 @@ class AuthActivity : AppCompatActivity() {
             viewModel.loginWithGoogle()
         }
 
+        viewModel.message.observe(this) {
+            Toast.makeText(this@AuthActivity, it, Toast.LENGTH_SHORT).show()
+        }
+        viewModel.event.observe(this) {
+            when (it) {
+                AuthViewModel.Event.NavigateToHome -> {
+                    val intent = Intent(this@AuthActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+                else -> {}
+            }
+        }
         lifecycleScope.launchWhenStarted {
             viewModel.signInIntent.collectLatest {
                 if (it != null) googleSignInActivityResultLauncher.launch(it)
-            }
-            viewModel.message.collectLatest {
-                Toast.makeText(this@AuthActivity, it, Toast.LENGTH_SHORT).show()
-            }
-            viewModel.event.collectLatest {
-                val intent = Intent(this@AuthActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
             }
         }
     }

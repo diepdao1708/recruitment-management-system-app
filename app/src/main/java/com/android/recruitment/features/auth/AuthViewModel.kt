@@ -2,6 +2,8 @@ package com.android.recruitment.features.auth
 
 import android.content.Intent
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.recruitment.data.repositories.AuthRepository
@@ -25,11 +27,11 @@ class AuthViewModel @Inject constructor(
         object NavigateToHome : Event()
     }
 
-    private val _event = MutableStateFlow<Event?>(null)
-    val event: StateFlow<Event?> = _event
+    private val _event = MutableLiveData<Event>()
+    val event: LiveData<Event?> = _event
 
-    private val _message = MutableStateFlow("")
-    val message: StateFlow<String> = _message
+    private val _message = MutableLiveData<String>()
+    val message: LiveData<String> = _message
 
     private val _signInIntent = MutableStateFlow<Intent?>(null)
     val signInIntent: StateFlow<Intent?> = _signInIntent
@@ -43,10 +45,10 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             authRepository.login(googleToken)
                 .onSuccess {
-                    _event.update { Event.NavigateToHome }
+                    _event.postValue(Event.NavigateToHome)
                 }
                 .onFailure {
-                    _message.update { it }
+                    _message.postValue(it.message)
                 }
         }
     }
@@ -55,10 +57,11 @@ class AuthViewModel @Inject constructor(
         val task = GoogleSignIn.getSignedInAccountFromIntent(data)
         try {
             val account = task.getResult(ApiException::class.java)
-            account.idToken?.let { login(it) }
+//            account.idToken?.let { login(it) }
+            _event.postValue(Event.NavigateToHome)
             Log.e("xxxx", "handleLoginResult: ${account.idToken}")
         } catch (e: ApiException) {
-            _message.update { e.message ?: "" }
+            _message.postValue(e.message)
         }
     }
 }
