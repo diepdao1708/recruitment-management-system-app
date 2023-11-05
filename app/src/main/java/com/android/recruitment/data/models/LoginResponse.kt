@@ -1,5 +1,6 @@
 package com.android.recruitment.data.models
 
 data class LoginResponse(
-    val access: String,
+    val accessToken: String,
+    val user: User,
 )

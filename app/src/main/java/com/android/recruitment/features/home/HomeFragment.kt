@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.android.recruitment.R
 import com.android.recruitment.databinding.FragmentHomeBinding
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -42,11 +44,20 @@ class HomeFragment : Fragment() {
         binding.clSearch.setOnClickListener {
             viewModel.navigateToSearch()
         }
+        binding.clAccount.setOnClickListener {
+            viewModel.navigateToAccount()
+        }
     }
 
     private fun observer() {
+        viewModel.getAllJob()
         lifecycleScope.launch {
             viewModel.uiState.collectLatest {
+                binding.tvName.text = it.userName
+                Glide.with(binding.root)
+                    .load(it.avatar)
+                    .placeholder(R.drawable.ic_person)
+                    .into(binding.imgAvatar)
                 jobAdapter.updateData(it.recommendJobList)
             }
         }
@@ -59,6 +70,16 @@ class HomeFragment : Fragment() {
 
                 HomeViewModel.Event.NavigateToSearch -> {
                     findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+                }
+
+                HomeViewModel.Event.NavigateToAccount -> {
+                    findNavController()
+                        .navigate(R.id.accountFragment,
+                            null,
+                            NavOptions.Builder()
+                                .setPopUpTo(R.id.homeFragment, true)
+                                .build()
+                        )
                 }
 
                 is HomeViewModel.Event.NavigateToJobDetail -> {

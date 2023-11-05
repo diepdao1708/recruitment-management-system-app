@@ -24,7 +24,11 @@
         android:id="@+id/resumeFragment"
         android:name="com.android.recruitment.features.resume.ResumeFragment"
         android:label="fragment_resume"
-        tools:layout="@layout/fragment_resume" />
+        tools:layout="@layout/fragment_resume">
+        <action
+            android:id="@+id/action_resumeFragment_to_resumeDetailFragment"
+            app:destination="@id/resumeDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.android.recruitment.features.account.AccountFragment"
@@ -68,20 +72,28 @@
         <action
             android:id="@+id/action_jobDetailFragment_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:launchSingleTop="true"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_jobDetailFragment_to_recommendFragment"
             app:destination="@id/recommendFragment"
-            app:launchSingleTop="true"
             app:popUpTo="@id/recommendFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_jobDetailFragment_to_searchFragment"
             app:destination="@id/searchFragment"
-            app:launchSingleTop="true"
             app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/resumeDetailFragment"
+        android:name="com.android.recruitment.features.resume_detail.ResumeDetailFragment"
+        android:label="fragment_resume_detail"
+        tools:layout="@layout/fragment_resume_detail">
+        <action
+            android:id="@+id/action_resumeDetailFragment_to_resumeFragment"
+            app:destination="@id/resumeFragment"
+            app:popUpTo="@id/resumeFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

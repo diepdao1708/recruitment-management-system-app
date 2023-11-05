@@ -1,23 +1,22 @@
 package com.android.recruitment.data.repositories
 
-import com.android.recruitment.data.services.ResumeService
+import com.android.recruitment.data.models.Resume
+import com.android.recruitment.data.services.UserService
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.Retrofit
 import java.io.File
 import javax.inject.Inject
 
 
-interface ResumeRepository {
+interface UserRepository {
     suspend fun uploadResume(file: File): Result<String>
+    suspend fun getAllResume(): Result<List<Resume>>
 }
 
-class ResumeRepositoryImpl @Inject constructor(
-    retrofit: Retrofit,
-) : ResumeRepository {
-
-    private val service = retrofit.create(ResumeService::class.java)
+class UserRepositoryImpl @Inject constructor(
+    private val service: UserService,
+) : UserRepository {
 
     override suspend fun uploadResume(file: File): Result<String> {
         return try {
@@ -29,6 +28,15 @@ class ResumeRepositoryImpl @Inject constructor(
                     requestBody
                 )
             )
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getAllResume(): Result<List<Resume>> {
+        return try {
+            val response = service.getAllResume()
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

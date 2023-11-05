@@ -1,9 +1,11 @@
 package com.android.recruitment.features.job_detail
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -37,9 +39,21 @@ class JobDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        jobFromHome = arguments?.getSerializable(Constant.HOME_TO_JOB_DETAIL_KEY) as? JobUi
-        jobFromRecommend = arguments?.getSerializable(Constant.RECOMMEND_TO_JOB_DETAIL_KEY) as? JobUi
-        jobFromSearch = arguments?.getSerializable(Constant.SEARCH_TO_JOB_DETAIL_KEY) as? JobUi
+        jobFromHome = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getSerializable(Constant.HOME_TO_JOB_DETAIL_KEY, JobUi::class.java)
+        } else {
+            arguments?.getSerializable(Constant.HOME_TO_JOB_DETAIL_KEY) as? JobUi
+        }
+        jobFromRecommend = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getSerializable(Constant.RECOMMEND_TO_JOB_DETAIL_KEY, JobUi::class.java)
+        } else {
+            arguments?.getSerializable(Constant.RECOMMEND_TO_JOB_DETAIL_KEY) as? JobUi
+        }
+        jobFromSearch = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getSerializable(Constant.SEARCH_TO_JOB_DETAIL_KEY, JobUi::class.java)
+        } else {
+            arguments?.getSerializable(Constant.SEARCH_TO_JOB_DETAIL_KEY) as? JobUi
+        }
 
         if (jobFromHome != null) {
             viewModel.setData(jobFromHome!!)
@@ -57,6 +71,25 @@ class JobDetailFragment : Fragment() {
     }
 
     private fun onClick() {
+        activity?.onBackPressedDispatcher?.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    when {
+                        jobFromHome != null -> {
+                            findNavController().navigate(R.id.action_jobDetailFragment_to_homeFragment)
+                        }
+
+                        jobFromRecommend != null -> {
+                            findNavController().navigate(R.id.action_jobDetailFragment_to_recommendFragment)
+                        }
+
+                        jobFromSearch != null -> {
+                            findNavController().navigate(R.id.action_jobDetailFragment_to_searchFragment)
+                        }
+                    }
+                }
+            })
         binding.btnBack.setOnClickListener {
             when {
                 jobFromHome != null -> {

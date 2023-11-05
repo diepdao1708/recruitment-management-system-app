@@ -17,7 +17,8 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun login(googleToken: String): Result<Unit> {
         return try {
             val loginResponse = authService.login(googleToken)
-            savedAccount.accessToken = loginResponse.access
+            savedAccount.accessToken = loginResponse.accessToken
+            savedAccount.user = loginResponse.user
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)

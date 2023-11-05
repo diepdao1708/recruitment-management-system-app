@@ -1,7 +1,6 @@
 package com.android.recruitment.features.auth
 
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -57,9 +56,7 @@ class AuthViewModel @Inject constructor(
         val task = GoogleSignIn.getSignedInAccountFromIntent(data)
         try {
             val account = task.getResult(ApiException::class.java)
-//            account.idToken?.let { login(it) }
-            _event.postValue(Event.NavigateToHome)
-            Log.e("xxxx", "handleLoginResult: ${account.idToken}")
+            account.idToken?.let { login(it) }
         } catch (e: ApiException) {
             _message.postValue(e.message)
         }

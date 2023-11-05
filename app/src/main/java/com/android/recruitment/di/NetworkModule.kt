@@ -66,13 +66,12 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         val gson = GsonBuilder()
-            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .registerTypeAdapter(Date::class.java, GsonUTCDateAdapter())
             .setLenient()
             .create()
 
         return Retrofit.Builder()
-            .baseUrl("https://7161-2405-4803-fdd3-d140-9d21-1914-5d0a-4a41.ngrok-free.app")
+            .baseUrl(Constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()

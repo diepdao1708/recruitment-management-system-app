@@ -76,4 +76,7 @@ dependencies {
 
     // read pdf
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
 }

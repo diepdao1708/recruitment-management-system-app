@@ -76,7 +76,7 @@
         tools:text="1 nam" />
 
     <TextView
-        android:id="@+id/tv_titleExpect"
+        android:id="@+id/tv_titleMajor"
         style="@style/subtitle_1_bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,19 +86,19 @@
         app:layout_constraintTop_toBottomOf="@id/tv_experience" />
 
     <TextView
-        android:id="@+id/tv_editExpect"
+        android:id="@+id/tv_editMajor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ripple_white"
         android:padding="@dimen/x_small"
         android:text="Sua"
         android:textColor="@color/primary"
-        app:layout_constraintBottom_toBottomOf="@id/tv_titleExpect"
+        app:layout_constraintBottom_toBottomOf="@id/tv_titleMajor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_titleExpect" />
+        app:layout_constraintTop_toTopOf="@id/tv_titleMajor" />
 
     <TextView
-        android:id="@+id/tv_expect"
+        android:id="@+id/tv_major"
         style="@style/body_medium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
         android:background="@drawable/bg_background_12"
         android:padding="@dimen/x_small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_titleExpect"
+        app:layout_constraintTop_toBottomOf="@id/tv_titleMajor"
         tools:text="android kotlin" />
 
     <TextView
@@ -117,7 +117,7 @@
         android:layout_marginTop="@dimen/x_medium"
         android:text="Quan ly tim viec"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_expect" />
+        app:layout_constraintTop_toBottomOf="@id/tv_major" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
