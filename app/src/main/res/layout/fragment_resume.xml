@@ -1,113 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/background"
     android:layout_height="match_parent"
     tools:context=".features.resume.ResumeFragment">
 
-    <RelativeLayout
-        android:background="@color/white"
-        android:id="@+id/rl_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"
-        android:layout_alignParentTop="true"
-        android:outlineProvider="bounds"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_title"
-            style="@style/headline6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/cv_management" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/ripple" />
-
-    </RelativeLayout>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fab_create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/x_medium"
-        android:backgroundTint="@color/success"
-        android:text="@string/create_cv"
-        android:textColor="@color/white"
-        app:icon="@drawable/ic_add"
-        app:iconTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_uploadCV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/large"
-        android:backgroundTint="@color/warning"
-        android:contentDescription="@string/app_name"
-        android:visibility="gone"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/fab_create"
-        app:layout_constraintEnd_toEndOf="@+id/fab_create"
-        app:srcCompat="@drawable/ic_file_upload_outline"
-        app:tint="@color/white" />
-
     <TextView
-        android:id="@+id/tv_uploadCV"
-        style="@style/body_medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/x_small"
-        android:text="@string/upload_cv"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/fab_uploadCV"
-        app:layout_constraintEnd_toStartOf="@+id/fab_uploadCV"
-        app:layout_constraintTop_toTopOf="@+id/fab_uploadCV" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_newCV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/large"
-        android:backgroundTint="@color/info"
-        android:contentDescription="@string/app_name"
-        android:visibility="gone"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/fab_uploadCV"
-        app:layout_constraintEnd_toEndOf="@+id/fab_uploadCV"
-        app:layout_constraintStart_toStartOf="@+id/fab_uploadCV"
-        app:srcCompat="@drawable/ic_add"
-        app:tint="@color/white" />
-
-    <TextView
-        android:id="@+id/tv_newCV"
-        style="@style/body_medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/x_small"
-        android:text="@string/new_cv"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/fab_newCV"
-        app:layout_constraintEnd_toStartOf="@+id/fab_newCV"
-        app:layout_constraintTop_toTopOf="@+id/fab_newCV" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_resume"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/x_medium"
-        android:layout_marginVertical="@dimen/small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/rl_toolbar"
-        tools:itemCount="5"
-        tools:listitem="@layout/item_resume" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Location" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

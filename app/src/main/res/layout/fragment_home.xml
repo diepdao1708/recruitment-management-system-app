@@ -83,58 +83,24 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/medium"
-                android:text="Ban muon tim viec?"
+                android:text="Tim kiem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/img_search"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                style="@style/body_regular"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small"
-                android:text="Dia diem - Cong ty - Vi tri"
-                android:textColor="@color/neutral_3"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/tv_titleSearch"
-                app:layout_constraintTop_toBottomOf="@id/tv_titleSearch" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_recommend"
-            style="@style/subtitle_2_bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/x_medium"
-            android:layout_marginTop="@dimen/x_medium"
-            android:text="Goi y viec lam phu hop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_search" />
-
-        <TextView
-            android:id="@+id/tv_allJob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/x_medium"
-            android:background="@drawable/ripple_background"
-            android:padding="@dimen/x_small"
-            android:text="Xem tat ca"
-            android:textColor="@color/primary"
-            app:layout_constraintBottom_toBottomOf="@id/tv_recommend"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_recommend" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcv_recommendJob"
+            android:id="@+id/rcv_news"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/x_medium"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/tv_recommend"
             tools:itemCount="5"
-            tools:listitem="@layout/item_job" />
+            app:layout_constraintTop_toBottomOf="@id/cl_search"
+            tools:listitem="@layout/item_news" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

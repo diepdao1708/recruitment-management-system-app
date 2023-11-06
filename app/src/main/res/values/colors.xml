@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary">#00B88F</color>
+    <color name="primary">#608CF6</color>
     <color name="secondary">#FE7D36</color>
     <color name="info">#358BFF</color>
     <color name="success">#3ABD66</color>
@@ -15,5 +15,5 @@
     <color name="neutral_4">#E7E7E7</color>
     <color name="neutral_5">#FFFFFF</color>
     <color name="ripple">#CECECF</color>
-    <color name="background">#F9F9F9</color>
+    <color name="background">#C0B7B7</color>
 </resources>

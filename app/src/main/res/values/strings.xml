@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Resume</string>
-    <string name="cv_profile"><![CDATA[CV & Profile]]></string>
+    <string name="cv_profile">Location</string>
     <string name="home">Home</string>
     <string name="account">Account</string>
     <string name="cv_management">CV management</string>
