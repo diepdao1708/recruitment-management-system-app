@@ -31,6 +31,7 @@ data class HomeStateUi(
 )
 
 data class JobUi(
+    val id: Int = 0,
     val name: String = "",
     val description: String = "",
     val yearOfExperience: String = "",
@@ -41,6 +42,7 @@ data class JobUi(
     val gender: String = "",
     val position: String = "",
     val image: Int = -1,
+    val statusApplication: String = "",
     val criteriaUiList: List<CriteriaUi> = emptyList(),
 ) : Serializable
 
@@ -49,3 +51,10 @@ data class CriteriaUi(
     val qualification: String = "",
     val description: String = "",
 )
+
+const val pending = "PENDING"
+const val canceled = "CANCELED"
+const val passedCv = "PASSED-CV"
+const val passedInterview = "PASSED-INTERVIEW"
+const val failedCv = "FAILED-CV"
+const val failedInterview = "FAILED-INTERVIEW"

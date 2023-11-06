@@ -1,5 +1,6 @@
 package com.android.recruitment.data.repositories
 
+import com.android.recruitment.data.models.CommonResponse
 import com.android.recruitment.data.models.Resume
 import com.android.recruitment.data.services.UserService
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -12,6 +13,7 @@ import javax.inject.Inject
 interface UserRepository {
     suspend fun uploadResume(file: File): Result<String>
     suspend fun getAllResume(): Result<List<Resume>>
+    suspend fun apply(jobId: String, resumePath: String): Result<CommonResponse>
 }
 
 class UserRepositoryImpl @Inject constructor(
@@ -37,6 +39,15 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun getAllResume(): Result<List<Resume>> {
         return try {
             val response = service.getAllResume()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun apply(jobId: String, resumePath: String): Result<CommonResponse> {
+        return try {
+            val response = service.apply(jobId, resumePath)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

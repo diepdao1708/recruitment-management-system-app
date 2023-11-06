@@ -51,6 +51,7 @@ class HomeViewModel @Inject constructor(
                     _uiState.update {
                         it.copy(recommendJobList = jobList.map { job ->
                             JobUi(
+                                id = job.id ?: 0,
                                 name = job.name ?: "",
                                 description = job.description ?: "",
                                 yearOfExperience = job.yearOfExperience ?: "",
@@ -60,6 +61,7 @@ class HomeViewModel @Inject constructor(
                                 quantity = (job.numberOfCandidate ?: 0).toString(),
                                 gender = job.gender ?: "",
                                 position = job.position ?: "",
+                                statusApplication = job.status_application?.code ?: "",
                                 criteriaUiList = job.criterias?.map { criteria ->
                                     CriteriaUi(
                                         title = criteria.title ?: "",

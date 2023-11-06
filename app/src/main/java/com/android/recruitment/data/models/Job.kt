@@ -14,5 +14,5 @@ data class Job(
     val workingTime: String?,
     val gender: String?,
     val position: String?,
-    val status_application: String?,
+    val status_application: StatusApplication?,
 )

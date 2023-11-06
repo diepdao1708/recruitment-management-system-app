@@ -75,34 +75,32 @@ class JobDetailFragment : Fragment() {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    when {
-                        jobFromHome != null -> {
-                            findNavController().navigate(R.id.action_jobDetailFragment_to_homeFragment)
-                        }
-
-                        jobFromRecommend != null -> {
-                            findNavController().navigate(R.id.action_jobDetailFragment_to_recommendFragment)
-                        }
-
-                        jobFromSearch != null -> {
-                            findNavController().navigate(R.id.action_jobDetailFragment_to_searchFragment)
-                        }
-                    }
+                    back()
                 }
             })
         binding.btnBack.setOnClickListener {
-            when {
-                jobFromHome != null -> {
-                    findNavController().navigate(R.id.action_jobDetailFragment_to_homeFragment)
-                }
+            back()
+        }
+        binding.tvApply.setOnClickListener {
+            val jobId = if (jobFromHome != null) jobFromHome!!.id
+            else if (jobFromSearch != null) jobFromSearch!!.id
+            else jobFromRecommend!!.id
+            viewModel.apply(jobId = jobId.toString(), resumePath = "static\\1699179777194.pdf")
+        }
+    }
 
-                jobFromRecommend != null -> {
-                    findNavController().navigate(R.id.action_jobDetailFragment_to_recommendFragment)
-                }
+    private fun back() {
+        when {
+            jobFromHome != null -> {
+                findNavController().navigate(R.id.action_jobDetailFragment_to_homeFragment)
+            }
 
-                jobFromSearch != null -> {
-                    findNavController().navigate(R.id.action_jobDetailFragment_to_searchFragment)
-                }
+            jobFromRecommend != null -> {
+                findNavController().navigate(R.id.action_jobDetailFragment_to_recommendFragment)
+            }
+
+            jobFromSearch != null -> {
+                findNavController().navigate(R.id.action_jobDetailFragment_to_searchFragment)
             }
         }
     }
@@ -118,9 +116,13 @@ class JobDetailFragment : Fragment() {
                     tvQuantity.text = it.quantity
                     tvGender.text = it.gender
                     tvPosition.text = it.position
+                    tvApply.text = it.statusApplication
                 }
                 criteriaAdapter.updateData(it.criteriaUiList)
             }
+        }
+        viewModel.message.observe(viewLifecycleOwner) {
+            if (it != null) back()
         }
     }
 }
