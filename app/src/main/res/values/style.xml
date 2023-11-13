@@ -29,6 +29,13 @@
         <item name="lineHeight">40dp</item>
     </style>
 
+    <style name="headline4_medium" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/neutral_1</item>
+        <item name="android:textSize">32sp</item>
+        <item name="lineHeight">40dp</item>
+    </style>
+
     <style name="headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/work_sans_bold</item>
         <item name="android:textColor">@color/neutral_1</item>

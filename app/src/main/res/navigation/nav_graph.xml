@@ -11,89 +11,42 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_recommendFragment"
-            app:destination="@id/recommendFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_jobDetailFragment"
-            app:destination="@id/jobDetailFragment" />
+            android:id="@+id/action_homeFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
     <fragment
         android:id="@+id/resumeFragment"
-        android:name="com.android.recruitment.features.resume.ResumeFragment"
+        android:name="com.android.recruitment.features.location.ResumeFragment"
         android:label="fragment_resume"
-        tools:layout="@layout/fragment_resume">
-        <action
-            android:id="@+id/action_resumeFragment_to_resumeDetailFragment"
-            app:destination="@id/resumeDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_resume" />
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.android.recruitment.features.account.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
-    <fragment
-        android:id="@+id/recommendFragment"
-        android:name="com.android.recruitment.features.recommend.RecommendFragment"
-        android:label="fragment_recommend"
-        tools:layout="@layout/fragment_recommend">
+        tools:layout="@layout/fragment_account">
         <action
-            android:id="@+id/action_recommendFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_recommendFragment_to_jobDetailFragment"
-            app:destination="@id/jobDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.android.recruitment.features.search.SearchFragment"
-        android:label="SearchFragment"
-        tools:layout="@layout/fragment_search">
-        <action
-            android:id="@+id/action_searchFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_searchFragment_to_jobDetailFragment"
-            app:destination="@id/jobDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/jobDetailFragment"
-        android:name="com.android.recruitment.features.job_detail.JobDetailFragment"
-        android:label="JobDetailFragment"
-        tools:layout="@layout/fragment_job_detail">
-        <action
-            android:id="@+id/action_jobDetailFragment_to_homeFragment"
+            android:id="@+id/action_accountFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_jobDetailFragment_to_recommendFragment"
-            app:destination="@id/recommendFragment"
-            app:popUpTo="@id/recommendFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_jobDetailFragment_to_searchFragment"
-            app:destination="@id/searchFragment"
-            app:popUpTo="@id/searchFragment"
+            android:id="@+id/action_accountFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/resumeDetailFragment"
-        android:name="com.android.recruitment.features.resume_detail.ResumeDetailFragment"
-        android:label="fragment_resume_detail"
-        tools:layout="@layout/fragment_resume_detail">
+        android:id="@+id/profileFragment"
+        android:name="com.android.recruitment.features.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
         <action
-            android:id="@+id/action_resumeDetailFragment_to_resumeFragment"
-            app:destination="@id/resumeFragment"
-            app:popUpTo="@id/resumeFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_profileFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addNewsFragment"
+        android:name="com.android.recruitment.features.add_news.AddNewsFragment"
+        android:label="fragment_add_news"
+        tools:layout="@layout/fragment_add_news" />
 </navigation>

@@ -8,8 +8,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_account_header"
-        tools:context=".features.home.HomeFragment">
+        android:background="@drawable/bg_account_header">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_account"
@@ -31,53 +30,52 @@
                 app:shapeAppearanceOverlay="@style/avatar_rounder" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 style="@style/headline4_medium"
-                android:gravity="center_horizontal"
-                android:text="Tin hang"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toStartOf="@id/img_avatar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/x_medium"
-            android:background="@drawable/bg_white_12"
-            android:padding="@dimen/medium"
-            app:layout_constraintTop_toBottomOf="@id/cl_account">
-
-            <ImageView
-                android:id="@+id/img_search"
-                android:layout_width="@dimen/icon_size_large"
-                android:layout_height="@dimen/icon_size_large"
-                android:src="@drawable/ic_search"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/primary"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/tv_titleSearch"
-                style="@style/subtitle_2_medium"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/medium"
-                android:text="Tim kiem"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/img_search"
+                android:gravity="center_horizontal"
+                android:text="Profile"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_avatar"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/tv_nguoiDungQuanTam"
+            style="@style/button_medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x_medium"
+            android:layout_marginTop="@dimen/x_medium"
+            android:layout_marginEnd="@dimen/small"
+            android:background="@drawable/bg_background_primary_12"
+            android:paddingHorizontal="@dimen/x_medium"
+            android:paddingVertical="@dimen/medium"
+            android:text="Nguoi dung quan tam"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@id/tv_tinDaQuanTam"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_account" />
+
+        <TextView
+            android:id="@+id/tv_tinDaQuanTam"
+            style="@style/button_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginEnd="@dimen/x_medium"
+            android:background="@drawable/bg_background_primary_12"
+            android:paddingHorizontal="@dimen/x_medium"
+            android:paddingVertical="@dimen/medium"
+            android:text="Tin da quan tam"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@id/tv_nguoiDungQuanTam"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_nguoiDungQuanTam"
+            app:layout_constraintTop_toTopOf="@id/tv_nguoiDungQuanTam" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_news"
@@ -85,8 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/x_medium"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_nguoiDungQuanTam"
             tools:itemCount="5"
-            app:layout_constraintTop_toBottomOf="@id/cl_search"
             tools:listitem="@layout/item_news" />
 
 

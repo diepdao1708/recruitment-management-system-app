@@ -39,9 +39,13 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.homeFragment, R.id.resumeFragment, R.id.accountFragment -> showBottomNavigation()
+                R.id.homeFragment, R.id.resumeFragment, R.id.profileFragment -> showBottomNavigation()
                 else -> hideBottomNavigation()
             }
+        }
+
+        binding.fab.setOnClickListener {
+            navController.navigate(R.id.addNewsFragment)
         }
     }
 

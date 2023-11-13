@@ -4,41 +4,110 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingHorizontal="@dimen/x_medium"
     android:background="@color/white"
     tools:context=".features.account.AccountFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_account"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large"
-        android:background="@drawable/bg_white_12"
-        android:padding="@dimen/x_medium"
-        app:layout_constraintTop_toTopOf="parent">
+        android:src="@drawable/bg_account_header"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/img_avatar"
-            android:layout_width="@dimen/avatar_size"
-            android:layout_height="@dimen/avatar_size"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/avatar_rounder" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_name"
-            style="@style/subtitle_1_bold"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium"
-            android:text="Dao Bich Diep"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_avatar"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/x_medium"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                style="@style/headline4_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large"
+                android:gravity="center"
+                android:text="Thong tin"
+                android:textColor="@color/white" />
+
+            <TextView
+                style="@style/subtitle_2_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x_small"
+                android:gravity="center"
+                android:text="Tieu thuong" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_avatar"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="@dimen/large"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/avatar_rounder" />
+
+            <TextView
+                style="@style/subtitle_1_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x_small"
+                android:gravity="center"
+                android:text="Tran Trang" />
+
+            <TextView
+                style="@style/subtitle_1_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x_medium"
+                android:background="@drawable/bg_gradient_12"
+                android:paddingHorizontal="@dimen/x_medium"
+                android:paddingVertical="@dimen/x_small"
+                android:text="So dien thoai: 0123456789"
+                android:textColor="@color/white" />
+
+            <TextView
+                style="@style/subtitle_1_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x_medium"
+                android:background="@drawable/bg_gradient_12"
+                android:paddingHorizontal="@dimen/x_medium"
+                android:paddingVertical="@dimen/x_small"
+                android:text="Nganh hang: Muc, ca"
+                android:textColor="@color/white" />
+
+            <TextView
+                style="@style/button_large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x_medium"
+                android:background="@drawable/bg_background_primary_12"
+                android:drawableStart="@drawable/ic_key"
+                android:drawablePadding="@dimen/x_medium"
+                android:paddingHorizontal="@dimen/x_medium"
+                android:paddingVertical="@dimen/medium"
+                android:text="Doi mat khau" />
+
+            <TextView
+                style="@style/button_large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x_medium"
+                android:background="@drawable/bg_background_primary_12"
+                android:drawableStart="@drawable/ic_hive"
+                android:drawablePadding="@dimen/x_medium"
+                android:paddingHorizontal="@dimen/x_medium"
+                android:paddingVertical="@dimen/medium"
+                android:text="Dang xuat" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

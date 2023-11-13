@@ -1,4 +1,4 @@
-package com.android.recruitment.features.resume
+package com.android.recruitment.features.location
 
 import android.os.Bundle
 import android.view.LayoutInflater

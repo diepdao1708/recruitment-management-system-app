@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="@color/background"
     android:layout_height="match_parent"
-    tools:context=".features.resume.ResumeFragment">
+    tools:context=".features.location.ResumeFragment">
 
     <TextView
         android:layout_width="match_parent"

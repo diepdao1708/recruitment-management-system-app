@@ -3,10 +3,11 @@
     <string name="cv_profile">Location</string>
     <string name="home">Home</string>
     <string name="account">Account</string>
+    <string name="profile">Profile</string>
     <string name="cv_management">CV management</string>
     <string name="create_cv">Create CV</string>
     <string name="upload_cv">Upload CV</string>
     <string name="new_cv">New CV</string>
-    <!-- TODO: Remove or change this placeholder text -->
+<!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
