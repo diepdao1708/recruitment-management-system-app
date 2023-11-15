@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/resumeFragment"
@@ -49,4 +52,15 @@
         android:name="com.android.recruitment.features.add_news.AddNewsFragment"
         android:label="fragment_add_news"
         tools:layout="@layout/fragment_add_news" />
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.android.recruitment.features.user_detail.UserDetailFragment"
+        android:label="fragment_user_detail"
+        tools:layout="@layout/fragment_user_detail">
+        <action
+            android:id="@+id/action_userDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

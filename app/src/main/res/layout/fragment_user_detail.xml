@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.add_news.AddNewsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/icon_size_large"
+            android:layout_height="@dimen/icon_size_large"
+            android:layout_marginStart="@dimen/x_medium"
+            android:background="@drawable/ripple_white"
+            android:padding="@dimen/x_small"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/subtitle_1_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium"
+            android:text="Thong tin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_follow"
+            app:layout_constraintStart_toEndOf="@id/btn_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_follow"
+            style="@style/body_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x_medium"
+            android:background="@drawable/ripple_background"
+            android:paddingHorizontal="@dimen/medium"
+            android:paddingVertical="@dimen/x_small"
+            android:text="Follow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ripple"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/x_medium"
+        android:layout_marginTop="@dimen/x_medium"
+        android:padding="6dp"
+        app:layout_constraintTop_toBottomOf="@id/cl_toolbar">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/avatar_rounder" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/subtitle_1_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:text="Hello Diep"
+            app:layout_constraintBottom_toTopOf="@id/tv_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_avatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/body_regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tieu thuong"
+            android:textColor="@color/neutral_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_role"
+        style="@style/subtitle_1_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/x_medium"
+        android:layout_marginTop="@dimen/x_medium"
+        android:background="@drawable/bg_gradient_12"
+        android:paddingHorizontal="@dimen/x_medium"
+        android:paddingVertical="@dimen/x_small"
+        android:text="So dien thoai: 0123456789"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/cl_account" />
+
+    <TextView
+        android:id="@+id/tv_sdt"
+        style="@style/subtitle_1_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/x_medium"
+        android:layout_marginTop="@dimen/x_medium"
+        android:background="@drawable/bg_gradient_12"
+        android:paddingHorizontal="@dimen/x_medium"
+        android:paddingVertical="@dimen/x_small"
+        android:text="So dien thoai: 0123456789"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_role" />
+
+    <TextView
+        style="@style/subtitle_1_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/x_medium"
+        android:layout_marginTop="@dimen/x_medium"
+        android:background="@drawable/bg_gradient_12"
+        android:paddingHorizontal="@dimen/x_medium"
+        android:paddingVertical="@dimen/x_small"
+        android:text="So dien thoai: 0123456789"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_sdt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

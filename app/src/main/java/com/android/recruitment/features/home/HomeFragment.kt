@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.android.recruitment.R
 import com.android.recruitment.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +16,11 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
     private val newsAdapter: NewsAdapter by lazy {
-        NewsAdapter()
+        NewsAdapter(listener = object : NewsAdapter.OnClickListener {
+            override fun onItemClick() {
+                findNavController().navigate(R.id.action_homeFragment_to_userDetailFragment)
+            }
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

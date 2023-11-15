@@ -14,7 +14,11 @@ class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
     private val newsAdapter: NewsAdapter by lazy {
-        NewsAdapter()
+        NewsAdapter(listener = object : NewsAdapter.OnClickListener {
+            override fun onItemClick() {
+
+            }
+        })
     }
 
     override fun onCreateView(

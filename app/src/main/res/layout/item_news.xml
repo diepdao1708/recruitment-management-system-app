@@ -105,7 +105,12 @@
             app:shapeAppearanceOverlay="@style/image_rounder" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/ll_favorite"
+            android:layout_width="wrap_content"
+            android:background="@drawable/bg_background_primary_12"
+            android:paddingHorizontal="@dimen/medium"
+            android:paddingVertical="@dimen/small"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center_vertical"
@@ -126,6 +131,20 @@
                 android:layout_height="wrap_content"
                 android:text="Yêu thích" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_contact"
+            style="@style/body_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_background_primary_12"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/x_medium"
+            android:paddingVertical="@dimen/small"
+            android:text="Lien lac"
+            app:layout_constraintBottom_toBottomOf="@id/ll_favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ll_favorite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
