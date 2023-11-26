@@ -1,4 +1,4 @@
-package com.android.recruitment.features
+package com.android.recruitment.features.splash
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_account"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_account_header">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/x_medium"
+        android:layout_marginTop="@dimen/large"
+        android:padding="6dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/x_medium"
-            android:layout_marginTop="@dimen/large"
-            android:padding="6dp"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/img_avatar"
-                android:layout_width="@dimen/avatar_size"
-                android:layout_height="@dimen/avatar_size"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/avatar_rounder" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/avatar_rounder" />
 
             <TextView
                 style="@style/headline4_medium"
@@ -35,7 +31,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="Profile"
-                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/img_avatar"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +65,7 @@
             android:background="@drawable/bg_background_primary_12"
             android:paddingHorizontal="@dimen/x_medium"
             android:paddingVertical="@dimen/medium"
+            android:gravity="center_vertical"
             android:text="Tin da quan tam"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="@id/tv_nguoiDungQuanTam"
@@ -77,16 +73,24 @@
             app:layout_constraintStart_toEndOf="@id/tv_nguoiDungQuanTam"
             app:layout_constraintTop_toTopOf="@id/tv_nguoiDungQuanTam" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcv_news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x_medium"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/tv_nguoiDungQuanTam"
-            tools:itemCount="5"
-            tools:listitem="@layout/item_news" />
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_shareLocation"
+        style="@style/body_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x_medium"
+        android:text="Chia se vi tri:"
+        app:layout_constraintTop_toBottomOf="@id/tv_nguoiDungQuanTam" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_news"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/x_medium"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/switch_shareLocation"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_my_news" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

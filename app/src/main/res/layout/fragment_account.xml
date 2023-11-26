@@ -65,41 +65,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x_medium"
-                android:background="@drawable/bg_gradient_12"
+                android:background="@drawable/bg_white_12"
                 android:paddingHorizontal="@dimen/x_medium"
                 android:paddingVertical="@dimen/x_small"
-                android:text="So dien thoai: 0123456789"
-                android:textColor="@color/white" />
+                android:text="So dien thoai: 0123456789" />
 
             <TextView
                 style="@style/subtitle_1_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x_medium"
-                android:background="@drawable/bg_gradient_12"
+                android:background="@drawable/bg_white_12"
                 android:paddingHorizontal="@dimen/x_medium"
                 android:paddingVertical="@dimen/x_small"
-                android:text="Nganh hang: Muc, ca"
-                android:textColor="@color/white" />
+                android:text="Nganh hang: Muc, ca" />
 
             <TextView
                 style="@style/button_large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x_medium"
-                android:background="@drawable/bg_background_primary_12"
-                android:drawableStart="@drawable/ic_key"
-                android:drawablePadding="@dimen/x_medium"
-                android:paddingHorizontal="@dimen/x_medium"
-                android:paddingVertical="@dimen/medium"
-                android:text="Doi mat khau" />
-
-            <TextView
-                style="@style/button_large"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x_medium"
-                android:background="@drawable/bg_background_primary_12"
+                android:background="@drawable/bg_white_12"
                 android:drawableStart="@drawable/ic_hive"
                 android:drawablePadding="@dimen/x_medium"
                 android:paddingHorizontal="@dimen/x_medium"

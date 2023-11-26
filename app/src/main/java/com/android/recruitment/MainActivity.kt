@@ -39,8 +39,14 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.homeFragment, R.id.resumeFragment, R.id.profileFragment -> showBottomNavigation()
-                else -> hideBottomNavigation()
+                R.id.homeFragment, R.id.locationFragment, R.id.profileFragment -> {
+                    binding.fab.visibility = View.VISIBLE
+                    showBottomNavigation()
+                }
+                else -> {
+                    binding.fab.visibility = View.GONE
+                    hideBottomNavigation()
+                }
             }
         }
 

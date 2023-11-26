@@ -70,8 +70,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_avatar"
-            android:layout_width="@dimen/avatar_size"
-            android:layout_height="@dimen/avatar_size"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
             style="@style/subtitle_1_bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium"
+            android:layout_marginStart="@dimen/x_medium"
             android:text="Hello Diep"
             app:layout_constraintBottom_toTopOf="@id/tv_time"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,12 +110,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/x_medium"
-        android:layout_marginTop="@dimen/x_medium"
-        android:background="@drawable/bg_gradient_12"
+        android:layout_marginTop="@dimen/large"
+        android:background="@drawable/bg_white_12"
         android:paddingHorizontal="@dimen/x_medium"
         android:paddingVertical="@dimen/x_small"
-        android:text="So dien thoai: 0123456789"
-        android:textColor="@color/white"
+        android:text="Nguoi dung: Tieu thuong"
         app:layout_constraintTop_toBottomOf="@id/cl_account" />
 
     <TextView
@@ -125,11 +124,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/x_medium"
         android:layout_marginTop="@dimen/x_medium"
-        android:background="@drawable/bg_gradient_12"
+        android:background="@drawable/bg_white_12"
         android:paddingHorizontal="@dimen/x_medium"
         android:paddingVertical="@dimen/x_small"
         android:text="So dien thoai: 0123456789"
-        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/tv_role" />
 
     <TextView
@@ -138,11 +136,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/x_medium"
         android:layout_marginTop="@dimen/x_medium"
-        android:background="@drawable/bg_gradient_12"
+        android:background="@drawable/bg_white_12"
         android:paddingHorizontal="@dimen/x_medium"
         android:paddingVertical="@dimen/x_small"
-        android:text="So dien thoai: 0123456789"
-        android:textColor="@color/white"
+        android:text="Nganh hang: Muc, Ca, Tom"
         app:layout_constraintTop_toBottomOf="@id/tv_sdt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

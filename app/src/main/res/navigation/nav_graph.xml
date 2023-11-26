@@ -18,10 +18,17 @@
             app:destination="@id/userDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/resumeFragment"
-        android:name="com.android.recruitment.features.location.ResumeFragment"
+        android:id="@+id/locationFragment"
+        android:name="com.android.recruitment.features.location.LocationFragment"
         android:label="fragment_resume"
-        tools:layout="@layout/fragment_resume" />
+        tools:layout="@layout/fragment_location">
+        <action
+            android:id="@+id/action_locationFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment" />
+        <action
+            android:id="@+id/action_locationFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.android.recruitment.features.account.AccountFragment"
@@ -37,6 +44,11 @@
             app:destination="@id/profileFragment"
             app:popUpTo="@id/profileFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_accountFragment_to_locationFragment"
+            app:destination="@id/locationFragment"
+            app:popUpTo="@id/locationFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -46,6 +58,15 @@
         <action
             android:id="@+id/action_profileFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editNewsFragment"
+            app:destination="@id/editNewsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_userFollowFragment"
+            app:destination="@id/userFollowFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_newsFollowFragment"
+            app:destination="@id/newsFollowFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNewsFragment"
@@ -62,5 +83,65 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_userDetailFragment_to_userFollowFragment"
+            app:destination="@id/userFollowFragment"
+            app:popUpTo="@id/userFollowFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_userDetailFragment_to_newsFollowFragment"
+            app:destination="@id/newsFollowFragment"
+            app:popUpTo="@id/newsFollowFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNewsFragment"
+        android:name="com.android.recruitment.features.profile.EditNewsFragment"
+        android:label="EditNewsFragment"
+        tools:layout="@layout/fragment_edit_news">
+        <action
+            android:id="@+id/action_editNewsFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationDetailFragment"
+        android:name="com.android.recruitment.features.location.LocationDetailFragment"
+        android:label="LocationDetailFragment"
+        tools:layout="@layout/fragment_detail_location">
+        <action
+            android:id="@+id/action_locationDetailFragment_to_locationFragment"
+            app:destination="@id/locationFragment"
+            app:popUpTo="@id/locationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFollowFragment"
+        android:name="com.android.recruitment.features.user_follow.UserFollowFragment"
+        android:label="UserFollowFragment"
+        tools:layout="@layout/fragment_user_follow">
+        <action
+            android:id="@+id/action_userFollowFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_userFollowFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFollowFragment"
+        android:name="com.android.recruitment.features.news_follow.NewsFollowFragment"
+        android:label="NewsFollowFragment"
+        tools:layout="@layout/fragment_news_follow">
+        <action
+            android:id="@+id/action_newsFollowFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_newsFollowFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
     </fragment>
 </navigation>

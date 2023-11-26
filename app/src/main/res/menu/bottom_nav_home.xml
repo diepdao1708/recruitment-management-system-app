@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
     <item
-        android:id="@+id/resumeFragment"
+        android:id="@+id/locationFragment"
         android:icon="@drawable/ic_person_pin"
         android:title="@string/cv_profile" />
     <item

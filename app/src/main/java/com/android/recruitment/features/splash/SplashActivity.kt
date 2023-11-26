@@ -1,4 +1,4 @@
-package com.android.recruitment.features
+package com.android.recruitment.features.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent

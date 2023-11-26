@@ -1,4 +1,4 @@
-package com.android.recruitment.features.add_news
+package com.android.recruitment.features.location
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,17 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.android.recruitment.databinding.FragmentAddNewsBinding
+import com.android.recruitment.R
+import com.android.recruitment.databinding.FragmentDetailLocationBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class AddNewsFragment : Fragment() {
 
-    private lateinit var binding: FragmentAddNewsBinding
+@AndroidEntryPoint
+class LocationDetailFragment : Fragment() {
+    private lateinit var binding: FragmentDetailLocationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAddNewsBinding.inflate(inflater, container, false)
+        binding = FragmentDetailLocationBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -24,7 +28,7 @@ class AddNewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_locationDetailFragment_to_locationFragment)
         }
     }
 }
