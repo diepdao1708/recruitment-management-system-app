@@ -349,7 +349,7 @@
         android:background="@drawable/ripple_primary"
         android:gravity="center"
         android:padding="@dimen/medium"
-        android:text="Ung tuyen ngay"
+        android:text="Apply"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent" />
 

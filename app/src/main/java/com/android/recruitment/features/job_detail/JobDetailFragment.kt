@@ -85,7 +85,11 @@ class JobDetailFragment : Fragment() {
             val jobId = if (jobFromHome != null) jobFromHome!!.id
             else if (jobFromSearch != null) jobFromSearch!!.id
             else jobFromRecommend!!.id
-            viewModel.apply(jobId = jobId.toString(), resumePath = "static\\1699179777194.pdf")
+            if (binding.tvApply.text.toString().lowercase() == "pending") {
+                viewModel.cancel(jobId)
+            } else if (binding.tvApply.text.toString().lowercase() == "apply") {
+                viewModel.apply(jobId = jobId.toString())
+            }
         }
     }
 
@@ -116,13 +120,20 @@ class JobDetailFragment : Fragment() {
                     tvQuantity.text = it.quantity
                     tvGender.text = it.gender
                     tvPosition.text = it.position
-                    tvApply.text = it.statusApplication
+                    if (it.statusApplication.isNotBlank()) {
+                        tvApply.isEnabled = it.statusApplication == "PENDING"
+                        tvApply.text = it.statusApplication
+                    }
                 }
                 criteriaAdapter.updateData(it.criteriaUiList)
             }
         }
         viewModel.message.observe(viewLifecycleOwner) {
-            if (it != null) back()
+            if (it == "apply success") {
+                binding.tvApply.text = "PENDING"
+            } else if (it == "update success") {
+                binding.tvApply.text = "APPLY"
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.recruitment.data.models.SavedAccount
 import com.android.recruitment.data.repositories.UserRepository
 import com.android.recruitment.features.home.JobUi
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class JobDetailViewModel @Inject constructor(
     private val userRepository: UserRepository,
+    private val savedAccount: SavedAccount,
 ) : ViewModel() {
 
     private val _jobUi = MutableStateFlow(JobUi())
@@ -28,9 +30,21 @@ class JobDetailViewModel @Inject constructor(
         _jobUi.update { jobUi }
     }
 
-    fun apply(jobId: String, resumePath: String) {
+    fun apply(jobId: String) {
         viewModelScope.launch {
-            userRepository.apply(jobId, resumePath)
+            userRepository.apply(jobId, savedAccount.user?.resumePath ?: "")
+                .onSuccess {
+                    _message.postValue(it.message ?: "")
+                }
+                .onFailure {
+                    _message.postValue(it.message)
+                }
+        }
+    }
+
+    fun cancel(jobId: Int) {
+        viewModelScope.launch {
+            userRepository.cancel(jobId)
                 .onSuccess {
                     _message.postValue(it.message ?: "")
                 }

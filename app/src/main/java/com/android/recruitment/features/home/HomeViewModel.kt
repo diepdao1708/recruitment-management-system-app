@@ -44,18 +44,18 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getAllJob() {
+    fun getRecommendJob() {
         viewModelScope.launch {
-            jobRepository.getAllJob()
+            jobRepository.getRecommendJob()
                 .onSuccess { jobList ->
                     _uiState.update {
-                        it.copy(recommendJobList = jobList.map { job ->
+                        it.copy(jobList = jobList.map { job ->
                             JobUi(
                                 id = job.id ?: 0,
                                 name = job.name ?: "",
                                 description = job.description ?: "",
-                                yearOfExperience = job.yearOfExperience ?: "",
-                                terminationDate = job.terminationDate ?: "",
+                                yearOfExperience = ("Year of experience: " + job.yearOfExperience),
+                                terminationDate = ("Termination date: " + job.terminationDate),
                                 salary = job.salary ?: "",
                                 workingTime = job.workingTime ?: "",
                                 quantity = (job.numberOfCandidate ?: 0).toString(),
@@ -67,7 +67,11 @@ class HomeViewModel @Inject constructor(
                                         title = criteria.title ?: "",
                                         qualification = criteria.qualification ?: ""
                                     )
-                                } ?: emptyList()
+                                } ?: emptyList(),
+                                category = Category(
+                                    description = job.description ?: "",
+                                    name = job.name ?: "",
+                                ),
                             )
                         })
                     }

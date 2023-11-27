@@ -57,79 +57,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_option"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"
-        android:background="@color/white"
-        android:paddingHorizontal="@dimen/x_medium"
-        android:paddingVertical="@dimen/small"
-        app:layout_constraintTop_toBottomOf="@id/cl_toolbar">
-
-        <ImageView
-            android:id="@+id/btn_filter"
-            android:layout_width="@dimen/icon_size_large"
-            android:layout_height="@dimen/icon_size_large"
-            android:src="@drawable/ic_filter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/primary"
-            tools:ignore="ContentDescription" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="1dp"
-            android:layout_height="@dimen/x_large"
-            android:layout_marginStart="@dimen/medium"
-            android:background="@color/ripple"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btn_filter"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_experience"
-            style="@style/body_regular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/x_medium"
-            android:background="@drawable/bg_white_12"
-            android:drawablePadding="@dimen/small"
-            android:paddingVertical="@dimen/small"
-            android:paddingStart="@dimen/medium"
-            android:paddingEnd="@dimen/x_small"
-            android:text="Kinh nghiem"
-            app:drawableEndCompat="@drawable/ic_expand"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/view"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_salary"
-            style="@style/body_regular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/x_medium"
-            android:background="@drawable/bg_white_12"
-            android:drawablePadding="@dimen/small"
-            android:paddingVertical="@dimen/small"
-            android:paddingStart="@dimen/medium"
-            android:paddingEnd="@dimen/x_small"
-            android:text="Muc luong"
-            app:drawableEndCompat="@drawable/ic_expand"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_experience"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_job"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/x_medium"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/cl_option"
+        app:layout_constraintTop_toBottomOf="@id/cl_toolbar"
         tools:itemCount="5"
         tools:listitem="@layout/item_job" />
 

@@ -83,7 +83,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/medium"
-                android:text="Ban muon tim viec?"
+                android:text="Do you want to find a suitable job?"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/img_search"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -93,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small"
-                android:text="Dia diem - Cong ty - Vi tri"
+                android:text="Job name"
                 android:textColor="@color/neutral_3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/x_medium"
             android:layout_marginTop="@dimen/x_medium"
-            android:text="Goi y viec lam phu hop"
+            android:text="Recommend job"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_search" />
 
@@ -120,7 +120,7 @@
             android:layout_marginEnd="@dimen/x_medium"
             android:background="@drawable/ripple_background"
             android:padding="@dimen/x_small"
-            android:text="Xem tat ca"
+            android:text="All"
             android:textColor="@color/primary"
             app:layout_constraintBottom_toBottomOf="@id/tv_recommend"
             app:layout_constraintEnd_toEndOf="parent"

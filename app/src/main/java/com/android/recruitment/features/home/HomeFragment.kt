@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun observer() {
-        viewModel.getAllJob()
+        viewModel.getRecommendJob()
         lifecycleScope.launch {
             viewModel.uiState.collectLatest {
                 binding.tvName.text = it.userName
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                     .load(it.avatar)
                     .placeholder(R.drawable.ic_person)
                     .into(binding.imgAvatar)
-                jobAdapter.updateData(it.recommendJobList)
+                jobAdapter.updateData(it.jobList)
             }
         }
 

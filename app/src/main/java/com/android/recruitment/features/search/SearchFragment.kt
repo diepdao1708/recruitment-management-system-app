@@ -5,25 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.android.recruitment.R
 import com.android.recruitment.databinding.FragmentSearchBinding
-import com.android.recruitment.features.home.HomeViewModel
 import com.android.recruitment.features.home.JobAdapter
 import com.android.recruitment.features.home.JobUi
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
-    private val viewModel: HomeViewModel by activityViewModels()
     private val searchViewModel: SearchViewModel by viewModels()
     private val jobAdapter: JobAdapter by lazy {
         JobAdapter(
@@ -33,6 +34,12 @@ class SearchFragment : Fragment() {
                 }
             }
         )
+    }
+    private var listJob: List<JobUi> = emptyList()
+    private var searchJob: Job? = null
+
+    companion object {
+        const val QUERY_SEARCH_DELAY = 200L
     }
 
     override fun onCreateView(
@@ -61,9 +68,11 @@ class SearchFragment : Fragment() {
     }
 
     private fun observer() {
+        searchViewModel.getAllJob()
         lifecycleScope.launch {
-            viewModel.uiState.collectLatest {
-                jobAdapter.updateData(it.recommendJobList)
+            searchViewModel.uiState.collectLatest {
+                listJob = it
+                jobAdapter.updateData(it)
             }
         }
         searchViewModel.event.observe(viewLifecycleOwner) {
@@ -84,6 +93,25 @@ class SearchFragment : Fragment() {
     private fun onClick() {
         binding.btnBack.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+        }
+
+        binding.edtQuery.doAfterTextChanged { searchQuery ->
+            searchQuery?.let {
+                searchJob?.cancel()
+                searchJob = lifecycleScope.launch {
+                    delay(QUERY_SEARCH_DELAY)
+                    val list = listJob.filter { job ->
+                        job.name.lowercase(Locale.getDefault())
+                            .contains(it.trim().toString().lowercase(Locale.getDefault()))
+                    }
+                    jobAdapter.updateData(list)
+                }
+            }
+        }
+
+        binding.btnClear.setOnClickListener {
+            binding.edtQuery.text?.clear()
+            jobAdapter.updateData(listJob)
         }
     }
 }

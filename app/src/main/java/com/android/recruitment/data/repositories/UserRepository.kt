@@ -14,6 +14,8 @@ interface UserRepository {
     suspend fun uploadResume(file: File): Result<String>
     suspend fun getAllResume(): Result<List<Resume>>
     suspend fun apply(jobId: String, resumePath: String): Result<CommonResponse>
+
+    suspend fun cancel(jobId: Int): Result<CommonResponse>
 }
 
 class UserRepositoryImpl @Inject constructor(
@@ -48,6 +50,15 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun apply(jobId: String, resumePath: String): Result<CommonResponse> {
         return try {
             val response = service.apply(jobId, resumePath)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun cancel(jobId: Int): Result<CommonResponse> {
+        return try {
+            val response = service.cancel(jobId)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

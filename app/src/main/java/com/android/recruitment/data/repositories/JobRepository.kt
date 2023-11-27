@@ -6,6 +6,7 @@ import javax.inject.Inject
 
 interface JobRepository {
     suspend fun getAllJob(): Result<List<Job>>
+    suspend fun getRecommendJob(): Result<List<Job>>
 }
 
 class JobRepositoryImpl @Inject constructor(
@@ -14,6 +15,15 @@ class JobRepositoryImpl @Inject constructor(
     override suspend fun getAllJob(): Result<List<Job>> {
         return try {
             val response = service.getAllJob()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getRecommendJob(): Result<List<Job>> {
+        return try {
+            val response = service.getRecommendJob()
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

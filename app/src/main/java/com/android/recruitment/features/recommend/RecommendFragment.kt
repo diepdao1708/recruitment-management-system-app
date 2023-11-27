@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.android.recruitment.R
 import com.android.recruitment.databinding.FragmentRecommendBinding
-import com.android.recruitment.features.home.HomeViewModel
 import com.android.recruitment.features.home.JobAdapter
 import com.android.recruitment.features.home.JobUi
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +21,6 @@ import kotlinx.coroutines.launch
 class RecommendFragment : Fragment() {
 
     private lateinit var binding: FragmentRecommendBinding
-    private val viewModel: HomeViewModel by activityViewModels()
     private val recommendViewModel: RecommendViewModel by viewModels()
     private val jobAdapter: JobAdapter by lazy {
         JobAdapter(listener = object : JobAdapter.OnClickListener {
@@ -65,9 +62,10 @@ class RecommendFragment : Fragment() {
     }
 
     private fun observer() {
+        recommendViewModel.getAllJob()
         lifecycleScope.launch {
-            viewModel.uiState.collectLatest {
-                jobAdapter.updateData(it.recommendJobList)
+            recommendViewModel.uiState.collectLatest {
+                jobAdapter.updateData(it)
             }
         }
         recommendViewModel.event.observe(viewLifecycleOwner) {
