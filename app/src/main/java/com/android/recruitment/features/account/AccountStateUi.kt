@@ -5,5 +5,14 @@ data class AccountStateUi(
     val avatar: String = "",
     val experience: String = "",
     val major: String = "",
-    val numberApplication: Int = 0,
+    val listApplication: List<ApplicationUi> = emptyList(),
+)
+
+data class ApplicationUi(
+    val name: String = "",
+    val salary: String = "",
+    val terminationDate: String = "",
+    val applicationDate: String = "",
+    val resumePath: String = "",
+    val status: String = "",
 )

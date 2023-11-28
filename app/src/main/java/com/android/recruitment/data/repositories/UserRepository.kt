@@ -1,5 +1,6 @@
 package com.android.recruitment.data.repositories
 
+import com.android.recruitment.data.models.ApplicationResponse
 import com.android.recruitment.data.models.CommonResponse
 import com.android.recruitment.data.models.Resume
 import com.android.recruitment.data.services.UserService
@@ -16,6 +17,8 @@ interface UserRepository {
     suspend fun apply(jobId: String, resumePath: String): Result<CommonResponse>
 
     suspend fun cancel(jobId: Int): Result<CommonResponse>
+
+    suspend fun getAllApplication(): Result<List<ApplicationResponse>>
 }
 
 class UserRepositoryImpl @Inject constructor(
@@ -59,6 +62,15 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun cancel(jobId: Int): Result<CommonResponse> {
         return try {
             val response = service.cancel(jobId)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getAllApplication(): Result<List<ApplicationResponse>> {
+        return try {
+            val response = service.getAllApplication()
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)
