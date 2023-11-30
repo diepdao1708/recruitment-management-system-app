@@ -19,6 +19,7 @@ interface UserRepository {
     suspend fun cancel(jobId: Int): Result<CommonResponse>
 
     suspend fun getAllApplication(): Result<List<ApplicationResponse>>
+    suspend fun predictFromQuestion(data: List<Int>): Result<CommonResponse>
 }
 
 class UserRepositoryImpl @Inject constructor(
@@ -71,6 +72,15 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun getAllApplication(): Result<List<ApplicationResponse>> {
         return try {
             val response = service.getAllApplication()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun predictFromQuestion(data: List<Int>): Result<CommonResponse> {
+        return try {
+            val response = service.predictFromQuestion(data)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

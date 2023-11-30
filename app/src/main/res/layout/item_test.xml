@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/medium">
+
+    <TextView
+        android:id="@+id/tv_content"
+        style="@style/subtitle_1_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I am the life of the party."
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rb_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_content">
+
+        <RadioButton
+            android:id="@+id/rb_1"
+            style="@style/subtitle_2_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/medium"
+            android:text="1" />
+
+        <RadioButton
+            android:id="@+id/rb_2"
+            style="@style/subtitle_2_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/medium"
+            android:text="2" />
+
+        <RadioButton
+            android:id="@+id/rb_3"
+            style="@style/subtitle_2_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/medium"
+            android:text="3" />
+
+        <RadioButton
+            android:id="@+id/rb_4"
+            style="@style/subtitle_2_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/medium"
+            android:text="4" />
+
+        <RadioButton
+            android:id="@+id/rb_5"
+            style="@style/subtitle_2_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/medium"
+            android:text="5" />
+
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

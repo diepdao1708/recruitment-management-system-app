@@ -26,6 +26,7 @@ class HomeViewModel @Inject constructor(
         object NavigateToRecommend : Event()
         object NavigateToSearch : Event()
         object NavigateToAccount : Event()
+        object NavigateToTest : Event()
         data class NavigateToJobDetail(val bundle: Bundle) : Event()
     }
 
@@ -82,6 +83,10 @@ class HomeViewModel @Inject constructor(
 
     fun navigateToRecommend() {
         _event.postValue(Event.NavigateToRecommend)
+    }
+
+    fun navigateToTest() {
+        _event.postValue(Event.NavigateToTest)
     }
 
     fun navigateToSearch() {

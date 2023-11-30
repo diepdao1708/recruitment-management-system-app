@@ -4,6 +4,7 @@ import com.android.recruitment.data.models.ApplicationResponse
 import com.android.recruitment.data.models.CommonResponse
 import com.android.recruitment.data.models.Resume
 import okhttp3.MultipartBody
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -32,4 +33,7 @@ interface UserService {
 
     @GET("/application/all_my_application")
     suspend fun getAllApplication(): List<ApplicationResponse>
+
+    @POST("/predict_from_question")
+    suspend fun predictFromQuestion(@Body data: List<Int>): CommonResponse
 }

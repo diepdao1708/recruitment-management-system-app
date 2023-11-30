@@ -47,6 +47,9 @@ class HomeFragment : Fragment() {
         binding.clAccount.setOnClickListener {
             viewModel.navigateToAccount()
         }
+        binding.clTest.setOnClickListener {
+            viewModel.navigateToTest()
+        }
     }
 
     private fun observer() {
@@ -72,9 +75,14 @@ class HomeFragment : Fragment() {
                     findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
                 }
 
+                HomeViewModel.Event.NavigateToTest -> {
+                    findNavController().navigate(R.id.action_homeFragment_to_testFragment)
+                }
+
                 HomeViewModel.Event.NavigateToAccount -> {
                     findNavController()
-                        .navigate(R.id.accountFragment,
+                        .navigate(
+                            R.id.accountFragment,
                             null,
                             NavOptions.Builder()
                                 .setPopUpTo(R.id.homeFragment, true)
