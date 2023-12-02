@@ -35,7 +35,12 @@ class AuthViewModel @Inject constructor(
     private val _signInIntent = MutableStateFlow<Intent?>(null)
     val signInIntent: StateFlow<Intent?> = _signInIntent
 
+    private var _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
     fun loginWithGoogle() {
+        _isLoading.postValue(true)
         mGoogleSignInClient.signOut()
         _signInIntent.update { mGoogleSignInClient.signInIntent }
     }
@@ -44,9 +49,11 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             authRepository.login(googleToken)
                 .onSuccess {
+                    _isLoading.postValue(false)
                     _event.postValue(Event.NavigateToHome)
                 }
                 .onFailure {
+                    _isLoading.postValue(false)
                     _message.postValue(it.message)
                 }
         }

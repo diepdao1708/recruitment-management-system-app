@@ -6,9 +6,11 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.lifecycleScope
 import com.android.recruitment.MainActivity
 import com.android.recruitment.databinding.ActivityAuthBinding
+import com.android.recruitment.utils.LoadingUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -29,12 +31,15 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnLogin.setOnClickListener {
+        binding.googleLoginBtn.setOnClickListener {
             viewModel.loginWithGoogle()
         }
 
         viewModel.message.observe(this) {
             Toast.makeText(this@AuthActivity, it, Toast.LENGTH_SHORT).show()
+        }
+        viewModel.isLoading.distinctUntilChanged().observe(this) { isLoading ->
+            if (isLoading) LoadingUtils.showLoading(this) else LoadingUtils.hideLoading()
         }
         viewModel.event.observe(this) {
             when (it) {

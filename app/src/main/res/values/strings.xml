@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Resume</string>
+    <string name="app_name">Recruitment</string>
     <string name="cv_profile"><![CDATA[CV & Profile]]></string>
     <string name="home">Home</string>
     <string name="account">Account</string>
@@ -7,6 +7,21 @@
     <string name="create_cv">Create CV</string>
     <string name="upload_cv">Upload CV</string>
     <string name="new_cv">New CV</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="welcome_back">Welcome Back 👋</string>
+    <string name="let_s_log_in_apply_to_jobs">Let’s log in. Apply to jobs!</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="intro_1">Search your job</string>
+    <string name="intro_2">Browse jobs list</string>
+    <string name="intro_3">Apply to best jobs</string>
+    <string name="intro_4">Make your career</string>
+    <string name="intro_5">Search your dream job fast and ease</string>
+    <string name="intro_6">Make your dream career with job</string>
+    <string name="intro_description_1">Figure out your top five priorities whether it is company culture, salary.</string>
+    <string name="intro_description_2">Our job list include several  industries, so you can find the best job for you.</string>
+    <string name="intro_description_3">You can apply to your desirable jobs very quickly and easily with ease.</string>
+    <string name="intro_description_4">We help you find your dream job based on your skillset, location, demand.</string>
+    <string name="intro_description_5">Figure out your top five priorities —\nwhether it is company culture, salary or\na specific job position. </string>
+    <string name="intro_description_6">We help you find your dream job \naccording to your skillset, location &amp; \npreference to build your career.</string>
 </resources>

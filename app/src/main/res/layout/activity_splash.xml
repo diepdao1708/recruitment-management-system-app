@@ -4,15 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAFAFD"
     tools:context=".features.SplashActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Splash"
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="146dp"
+        android:layout_height="146dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:src="@mipmap/ic_logo_round"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/semi_bold"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="#0D0D26"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/img_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

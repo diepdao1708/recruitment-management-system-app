@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.recruitment.MainActivity
 import com.android.recruitment.databinding.ActivitySplashBinding
 import com.android.recruitment.features.auth.AuthActivity
+import com.android.recruitment.features.onboard.OnboardActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -27,9 +28,10 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         lifecycleScope.launchWhenStarted {
-            viewModel.event.collectLatest {
+            viewModel.events.collectLatest {
                 when (it) {
                     SplashViewModel.Event.NavigateToLogin -> navigateTo(AuthActivity::class.java)
+                    SplashViewModel.Event.NavigateToOnboard -> navigateTo(OnboardActivity::class.java)
                     SplashViewModel.Event.NavigateToHome -> navigateTo(MainActivity::class.java)
                 }
             }
