@@ -14,6 +14,7 @@ import com.android.recruitment.R
 import com.android.recruitment.databinding.FragmentJobDetailBinding
 import com.android.recruitment.features.home.JobUi
 import com.android.recruitment.utils.Constant
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -124,6 +125,10 @@ class JobDetailFragment : Fragment() {
                         tvApply.isEnabled = it.statusApplication == "PENDING"
                         tvApply.text = it.statusApplication
                     }
+                    Glide.with(binding.root)
+                        .load(it.imagePath)
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .into(binding.imgJob)
                 }
                 criteriaAdapter.updateData(it.criteriaUiList)
             }

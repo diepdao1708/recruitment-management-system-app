@@ -24,4 +24,5 @@
     <string name="intro_description_4">We help you find your dream job based on your skillset, location, demand.</string>
     <string name="intro_description_5">Figure out your top five priorities —\nwhether it is company culture, salary or\na specific job position. </string>
     <string name="intro_description_6">We help you find your dream job \naccording to your skillset, location &amp; \npreference to build your career.</string>
+    <string name="name">%s 👋</string>
 </resources>

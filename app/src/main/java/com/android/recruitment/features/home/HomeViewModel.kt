@@ -50,30 +50,41 @@ class HomeViewModel @Inject constructor(
             jobRepository.getRecommendJob()
                 .onSuccess { jobList ->
                     _uiState.update {
-                        it.copy(jobList = jobList.map { job ->
-                            JobUi(
-                                id = job.id ?: 0,
-                                name = job.name ?: "",
-                                description = job.description ?: "",
-                                yearOfExperience = ("Year of experience: " + job.yearOfExperience),
-                                terminationDate = ("Termination date: " + job.terminationDate),
-                                salary = job.salary ?: "",
-                                workingTime = job.workingTime ?: "",
-                                quantity = (job.numberOfCandidate ?: 0).toString(),
-                                gender = job.gender ?: "",
+                        it.copy(
+                            jobList = if (jobList.size > 4) {
+                                jobList.subList(0, 4)
+                            } else {
+                                jobList
+                            }.map { job ->
+                                val image = job.imagePath?.split("\\")
+                                JobUi(
+                                    id = job.id ?: 0,
+                                    name = job.name ?: "",
+                                    description = job.description ?: "",
+                                    yearOfExperience = ("Year of experience: " + job.yearOfExperience),
+                                    terminationDate = ("Termination date: " + job.terminationDate),
+                                    salary = job.salary ?: "",
+                                    workingTime = job.workingTime ?: "",
+                                    quantity = (job.numberOfCandidate ?: 0).toString(),
+                                    gender = job.gender ?: "",
                                 position = job.position ?: "",
                                 statusApplication = job.status_application?.code ?: "",
-                                criteriaUiList = job.criterias?.map { criteria ->
-                                    CriteriaUi(
-                                        title = criteria.title ?: "",
-                                        qualification = criteria.qualification ?: ""
-                                    )
-                                } ?: emptyList(),
-                                category = Category(
-                                    description = job.description ?: "",
-                                    name = job.name ?: "",
-                                ),
-                            )
+                                    criteriaUiList = job.criterias?.map { criteria ->
+                                        CriteriaUi(
+                                            title = criteria.title ?: "",
+                                            qualification = criteria.qualification ?: ""
+                                        )
+                                    } ?: emptyList(),
+                                    category = Category(
+                                        description = job.description ?: "",
+                                        name = job.name ?: "",
+                                    ),
+                                    imagePath = "${Constant.BASE_URL}/${image?.get(0)}/${
+                                        image?.get(
+                                            1
+                                        )
+                                    }",
+                                )
                         })
                     }
                 }

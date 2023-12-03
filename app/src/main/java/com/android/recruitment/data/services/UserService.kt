@@ -1,8 +1,11 @@
 package com.android.recruitment.data.services
 
 import com.android.recruitment.data.models.ApplicationResponse
+import com.android.recruitment.data.models.Candidate
+import com.android.recruitment.data.models.Catagory
 import com.android.recruitment.data.models.CommonResponse
 import com.android.recruitment.data.models.Resume
+import com.android.recruitment.data.models.User
 import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -36,4 +39,13 @@ interface UserService {
 
     @POST("/predict_from_question")
     suspend fun predictFromQuestion(@Body data: List<Int>): CommonResponse
+
+    @GET("/catagory/all")
+    suspend fun getCategories(): List<Catagory>
+
+    @PUT("/candidate/update")
+    suspend fun updateCandidate(@Body candidate: Candidate): User
+
+    @GET("/candidate/info")
+    suspend fun getInfo(): User
 }

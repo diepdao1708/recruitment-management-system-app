@@ -43,9 +43,9 @@ class SplashViewModel @Inject constructor(
 
     private fun checkLogin() {
         val accessToken = sharedPreferences.getString(ACCESS_TOKEN, DEFAULT_VALUE)
-        val presetJson = sharedPreferences.getString(ACCOUNT_INFO, null)
+        val userJson = sharedPreferences.getString(ACCOUNT_INFO, null)
         val type = object : TypeToken<User?>() {}.type
-        val user: User = Gson().fromJson(presetJson, type)
+        val user: User? = Gson().fromJson(userJson, type)
         savedAccount.accessToken = accessToken
         savedAccount.user = user
         Log.d("xxxx", accessToken.toString())

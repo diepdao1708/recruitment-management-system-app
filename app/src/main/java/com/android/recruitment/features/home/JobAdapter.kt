@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.android.recruitment.R
 import com.android.recruitment.databinding.ItemJobBinding
+import com.bumptech.glide.Glide
 
 class JobAdapter(
     private var jobs: List<JobUi> = emptyList(),
@@ -20,6 +22,11 @@ class JobAdapter(
                 tvTerminationDate.text = jobUi.terminationDate
                 tvYearOfExperience.text = jobUi.yearOfExperience
             }
+
+            Glide.with(binding.root)
+                .load(jobUi.imagePath)
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(binding.imgJob)
 
             binding.root.setOnClickListener {
                 listener.onItemClick(jobUi)

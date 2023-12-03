@@ -1,5 +1,6 @@
 package com.android.recruitment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -9,8 +10,13 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.android.recruitment.databinding.ActivityMainBinding
+import com.android.recruitment.features.auth.AuthActivity
+import com.android.recruitment.utils.AppEvent
+import com.android.recruitment.utils.hideKeyboard
 import com.android.recruitment.utils.setKeyboardVisibilityListener
 import dagger.hilt.android.AndroidEntryPoint
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -47,11 +53,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideBottomNavigation() {
         binding.bnvMain.visibility = View.GONE
-
     }
 
     private fun showBottomNavigation() {
         binding.bnvMain.visibility = View.VISIBLE
+    }
 
+    fun logout() {
+        hideKeyboard()
+        val intent = Intent(this, AuthActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onAppEvent(event: AppEvent) {
+        if (event is AppEvent.LogOut) {
+            viewModel.logout()
+            logout()
+        }
     }
 }

@@ -1,8 +1,11 @@
 package com.android.recruitment.data.repositories
 
 import com.android.recruitment.data.models.ApplicationResponse
+import com.android.recruitment.data.models.Candidate
+import com.android.recruitment.data.models.Catagory
 import com.android.recruitment.data.models.CommonResponse
 import com.android.recruitment.data.models.Resume
+import com.android.recruitment.data.models.User
 import com.android.recruitment.data.services.UserService
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -20,6 +23,10 @@ interface UserRepository {
 
     suspend fun getAllApplication(): Result<List<ApplicationResponse>>
     suspend fun predictFromQuestion(data: List<Int>): Result<CommonResponse>
+    suspend fun getCategories(): Result<List<Catagory>>
+
+    suspend fun updateCandidate(candidate: Candidate): Result<User>
+    suspend fun getInfo(): Result<User>
 }
 
 class UserRepositoryImpl @Inject constructor(
@@ -81,6 +88,33 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun predictFromQuestion(data: List<Int>): Result<CommonResponse> {
         return try {
             val response = service.predictFromQuestion(data)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getCategories(): Result<List<Catagory>> {
+        return try {
+            val response = service.getCategories()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun updateCandidate(candidate: Candidate): Result<User> {
+        return try {
+            val response = service.updateCandidate(candidate)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getInfo(): Result<User> {
+        return try {
+            val response = service.getInfo()
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

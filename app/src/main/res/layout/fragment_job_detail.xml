@@ -33,11 +33,12 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/img_job"
-                android:layout_width="@dimen/xxx_large"
-                android:layout_height="@dimen/xxx_large"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="@dimen/x_large"
                 android:padding="1dp"
                 android:src="@color/ripple"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

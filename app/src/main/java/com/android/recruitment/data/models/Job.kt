@@ -1,5 +1,7 @@
 package com.android.recruitment.data.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Job(
     val id: Int?,
     val numberOfCandidate: Int?,
@@ -13,5 +15,7 @@ data class Job(
     val workingTime: String?,
     val gender: String?,
     val position: String?,
+    @SerializedName("imagePath")
+    val imagePath: String?,
     val status_application: StatusApplication?,
 )

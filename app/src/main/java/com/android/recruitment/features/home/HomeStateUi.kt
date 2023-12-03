@@ -19,7 +19,7 @@ data class JobUi(
     val quantity: String = "",
     val gender: String = "",
     val position: String = "",
-    val image: Int = -1,
+    val imagePath: String = "",
     val statusApplication: String = "",
     val criteriaUiList: List<CriteriaUi> = emptyList(),
     val category: Category = Category(),
@@ -32,6 +32,7 @@ data class CriteriaUi(
 )
 
 data class Category(
+    val id: Int = 0,
     val description: String = "",
     val name: String = "",
 )

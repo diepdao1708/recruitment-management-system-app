@@ -15,9 +15,8 @@
             android:id="@+id/cl_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/x_medium"
+            android:layout_marginHorizontal="@dimen/x_medium"
             android:layout_marginTop="@dimen/large"
-            android:background="@drawable/bg_account"
             android:padding="6dp"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -27,33 +26,32 @@
                 android:layout_height="@dimen/avatar_size"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:shapeAppearanceOverlay="@style/avatar_rounder" />
 
             <TextView
                 android:id="@+id/tv_name"
-                style="@style/subtitle_1_bold"
+                android:fontFamily="@font/bold"
+                android:text="@string/name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/medium"
-                android:text="Hello Diep"
-                app:layout_constraintBottom_toTopOf="@id/tv_time"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/img_avatar"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@id/img_avatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_time" />
 
             <TextView
                 android:id="@+id/tv_time"
-                style="@style/body_regular"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Good morning"
-                android:textColor="@color/neutral_3"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/tv_name"
-                app:layout_constraintStart_toStartOf="@id/tv_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_name" />
+                android:fontFamily="@font/medium"
+                android:text="Welcome Back!"
+                android:textColor="#95969D"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/img_avatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -61,8 +59,9 @@
             android:id="@+id/cl_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/x_medium"
-            android:background="@drawable/bg_white_12"
+            android:layout_marginHorizontal="@dimen/x_medium"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_search"
             android:padding="@dimen/medium"
             app:layout_constraintTop_toBottomOf="@id/cl_account">
 
@@ -74,31 +73,22 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/primary"
+                app:tint="#95969D"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tv_titleSearch"
-                style="@style/subtitle_2_medium"
                 android:layout_width="0dp"
+                android:fontFamily="@font/regular"
+                android:text="Search a job"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/medium"
-                android:text="Do you want to find a suitable job?"
+                android:textColor="#95969D"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/img_search"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                style="@style/body_regular"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small"
-                android:text="Job name"
-                android:textColor="@color/neutral_3"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/tv_titleSearch"
-                app:layout_constraintTop_toBottomOf="@id/tv_titleSearch" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/x_medium"
-            android:layout_marginTop="@dimen/x_medium"
+            android:layout_marginTop="20dp"
             android:text="Recommend job"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_search" />
@@ -136,21 +126,34 @@
             tools:itemCount="1"
             tools:listitem="@layout/item_job" />
 
+        <TextView
+            android:id="@+id/tv_exam"
+            style="@style/subtitle_2_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x_medium"
+            android:layout_marginTop="20dp"
+            android:text="Personality prediction test"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rcv_recommendJob" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/x_medium"
-            android:background="@drawable/bg_white_12"
+            android:background="@drawable/bg_primary_6"
             android:padding="@dimen/x_medium"
-            app:layout_constraintTop_toBottomOf="@id/rcv_recommendJob">
+            app:layout_constraintTop_toBottomOf="@id/tv_exam">
 
             <TextView
-                style="@style/subtitle_1_bold"
+                android:fontFamily="@font/regular"
+                android:text="OCEAN (Big Five personality traits)"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/medium"
-                android:text="Trac nghiem tinh cach MBTI" />
+                android:textSize="16sp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

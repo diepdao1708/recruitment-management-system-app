@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.android.recruitment.MainActivity
 import com.android.recruitment.R
 import com.android.recruitment.databinding.FragmentAccountBinding
 import com.bumptech.glide.Glide
@@ -27,12 +28,46 @@ class AccountFragment : Fragment() {
             }
         )
     }
+    private var experience = "NONE"
+    private var major = "NONE"
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rcvApplication.adapter = applicationAdapter
+        binding.tvEditExperience.setOnClickListener {
+            val bottomSheet =
+                BottomSheet.newInstance(experience, viewModel.listExperience, Type.EXPERIENCE)
+            bottomSheet.show(childFragmentManager, BottomSheet::class.java.simpleName)
+            bottomSheet.onClick = { item, type ->
+                if (type == Type.EXPERIENCE) {
+                    viewModel.updateExperience(item)
+                }
+            }
+        }
+        binding.tvEditMajor.setOnClickListener {
+            val bottomSheet =
+                BottomSheet.newInstance(
+                    major,
+                    viewModel.uiState.value.listCategory.map { it.name },
+                    Type.MAJOR
+                )
+            bottomSheet.show(childFragmentManager, BottomSheet::class.java.simpleName)
+            bottomSheet.onClick = { item, type ->
+                if (type == Type.MAJOR) {
+                    viewModel.updateMajor(item)
+                }
+            }
+        }
+        binding.imgAvatar.setOnClickListener {
+            val bottomSheet = LogoutBottomSheet.newInstance()
+            bottomSheet.show(childFragmentManager, LogoutBottomSheet::class.java.simpleName)
+            bottomSheet.onClick = {
+                viewModel.logout()
+                (activity as MainActivity).logout()
+            }
+        }
         observer()
     }
 
@@ -41,10 +76,13 @@ class AccountFragment : Fragment() {
 
         lifecycleScope.launch {
             viewModel.uiState.collectLatest {
+                experience = it.experience
                 binding.apply {
-                    tvName.text = it.userName
+                    binding.tvName.text =
+                        context?.resources?.getString(R.string.name)
+                            ?.let { it1 -> String.format(it1, it.userName) }
                     tvExperience.text = it.experience
-                    tvMajor.text = it.major
+                    tvMajor.text = it.major.ifBlank { "NONE" }
                     tvNumberJob.text = it.listApplication.size.toString()
                 }
                 Glide.with(binding.root)

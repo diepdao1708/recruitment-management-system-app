@@ -44,6 +44,7 @@ class RecommendViewModel @Inject constructor(
                 .onSuccess { jobList ->
                     _uiState.update {
                         jobList.map { job ->
+                            val image = job.imagePath?.split("\\")
                             JobUi(
                                 id = job.id ?: 0,
                                 name = job.name ?: "",
@@ -66,6 +67,11 @@ class RecommendViewModel @Inject constructor(
                                     description = job.description ?: "",
                                     name = job.name ?: "",
                                 ),
+                                imagePath = "${Constant.BASE_URL}/${image?.get(0)}/${
+                                    image?.get(
+                                        1
+                                    )
+                                }",
                             )
                         }
                     }

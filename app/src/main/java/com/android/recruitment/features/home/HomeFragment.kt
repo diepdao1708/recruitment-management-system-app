@@ -56,7 +56,9 @@ class HomeFragment : Fragment() {
         viewModel.getRecommendJob()
         lifecycleScope.launch {
             viewModel.uiState.collectLatest {
-                binding.tvName.text = it.userName
+                binding.tvName.text =
+                    context?.resources?.getString(R.string.name)
+                        ?.let { it1 -> String.format(it1, it.userName) }
                 Glide.with(binding.root)
                     .load(it.avatar)
                     .placeholder(R.drawable.ic_person)
