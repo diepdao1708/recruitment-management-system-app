@@ -46,4 +46,36 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/medium"
+        android:paddingVertical="8dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/cl_toolbar"
+        tools:text="Ex" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/bold"
+        android:paddingVertical="8dp"
+        android:text="What are the “Big 5” personality traits?"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvResult" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/regular"
+        android:text="@string/content"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tv" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

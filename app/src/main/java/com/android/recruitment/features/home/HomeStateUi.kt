@@ -18,7 +18,6 @@ data class JobUi(
     val workingTime: String = "",
     val quantity: String = "",
     val gender: String = "",
-    val position: String = "",
     val imagePath: String = "",
     val statusApplication: String = "",
     val criteriaUiList: List<CriteriaUi> = emptyList(),

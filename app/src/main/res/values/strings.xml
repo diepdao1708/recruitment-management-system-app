@@ -25,4 +25,5 @@
     <string name="intro_description_5">Figure out your top five priorities —\nwhether it is company culture, salary or\na specific job position. </string>
     <string name="intro_description_6">We help you find your dream job \naccording to your skillset, location &amp; \npreference to build your career.</string>
     <string name="name">%s 👋</string>
+    <string name="content"><i><b>Conscientiousness</b></i> — The extent that someone is organized, works hard, stays on task, and perseveres to finish the job.\n\n\n<i><b>Extraversion</b></i> — The extent that someone is outgoing, assertive, friendly, and active.\n\n<i><b>Agreeableness</b></i> — The extent that someone is cooperative, trusting, polite, and compassionate.\n\n<i><b>Neuroticism</b></i> — The extent that someone worries, and is irritable, or easily stressed. The opposite of this trait is often called Emotional Stability.\n\n <i><b>Openness to Experience</b></i> — The extent that someone is curious, imaginative, flexible, and interested in trying new things.</string>
 </resources>

@@ -14,7 +14,6 @@ data class Job(
     val salary: String?,
     val workingTime: String?,
     val gender: String?,
-    val position: String?,
     @SerializedName("imagePath")
     val imagePath: String?,
     val status_application: StatusApplication?,

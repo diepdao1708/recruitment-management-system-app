@@ -283,49 +283,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_position"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/medium"
-                app:layout_constraintTop_toBottomOf="@id/cl_gender">
-
-                <ImageView
-                    android:id="@+id/img_position"
-                    android:layout_width="@dimen/icon_size_large"
-                    android:layout_height="@dimen/icon_size_large"
-                    android:src="@drawable/ic_hive"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/primary"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tv_titlePosition"
-                    style="@style/body_regular"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/x_medium"
-                    android:text="Cap bac"
-                    android:textColor="@color/neutral_2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/img_position"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_position"
-                    style="@style/body_medium"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/small"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/tv_titlePosition"
-                    app:layout_constraintTop_toBottomOf="@id/tv_titlePosition"
-                    tools:text="Nhan vien" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_criteria"
                 android:layout_width="match_parent"
@@ -334,7 +291,7 @@
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cl_position"
+                app:layout_constraintTop_toBottomOf="@id/cl_gender"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_criteria" />
 

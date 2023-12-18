@@ -67,7 +67,6 @@ class HomeViewModel @Inject constructor(
                                     workingTime = job.workingTime ?: "",
                                     quantity = (job.numberOfCandidate ?: 0).toString(),
                                     gender = job.gender ?: "",
-                                position = job.position ?: "",
                                 statusApplication = job.status_application?.code ?: "",
                                     criteriaUiList = job.criterias?.map { criteria ->
                                         CriteriaUi(

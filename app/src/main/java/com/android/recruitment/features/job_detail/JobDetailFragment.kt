@@ -120,7 +120,6 @@ class JobDetailFragment : Fragment() {
                     tvTime.text = it.workingTime
                     tvQuantity.text = it.quantity
                     tvGender.text = it.gender
-                    tvPosition.text = it.position
                     if (it.statusApplication.isNotBlank()) {
                         tvApply.isEnabled = it.statusApplication == "PENDING"
                         tvApply.text = it.statusApplication
